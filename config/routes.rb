@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to:'home#index', as: 'home'
+  root to:'homes#index', as: 'homes'
 
   get '/salut(/:name)', to:'pages#salut', as: 'bonjour'
 
@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   resources :clients
 
   resources :sessions
+
+  post 'session#destroy', to:'sessions#destroy', as: 'deco'
+
+  resources :contients
+
+  resources :paniers
 
 end

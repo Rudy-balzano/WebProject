@@ -2,12 +2,15 @@ class ArticlesController < ApplicationController
     before_action :set_article, only: [:update, :show, :edit, :destroy]
   
     def index
+
       @articles = Article.all
-  
   
     end
   
     def show
+
+      cookies.delete(:last_article)
+      cookies[:last_article] = @article.id
   
     end
   
@@ -28,10 +31,11 @@ class ArticlesController < ApplicationController
     end
   
     def create
+
       @article = Article.new(article_params)
-  
       @article.save
       redirect_to @article
+      
     end
   
     def destroy

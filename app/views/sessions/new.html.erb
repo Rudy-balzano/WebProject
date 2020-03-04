@@ -1,0 +1,61 @@
+<style>
+  .form-signin {
+    width: 100%;
+    max-width: 600px;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    margin: auto;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+  }
+
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+</style>
+
+<div class="text-center form-signin">
+  <% if flash[:alert]  %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+
+  <% end %>
+  <h3 class="mb-3 font-weight-normal p-3 border-bottom">Please sign in</h3>
+
+  <%= form_tag sessions_path do %>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+
+    <%= text_field_tag :mail,"", class: "form-control", placeholder: "Email address" %>
+
+    <br>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+
+    <%= password_field_tag :password,"", class: "form-control", placeholder: "Password" %>
+    <br>
+
+
+
+    <%= submit_tag "Login", class: 'btn btn-outline-secondary btn-lg btn-block'%>
+
+    <div>
+      <a class="p-3 text-dark" href="/clients/new">Don't have an account?</a>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+  <%end%>
+</div>

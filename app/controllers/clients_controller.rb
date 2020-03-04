@@ -27,9 +27,9 @@ class ClientsController < ApplicationController
   
     def destroy
   
-      session.delete(:client_id)
+      session.delete(:user_id)
       @client.destroy
-      redirect_to new_client_path
+      redirect_to homes_path
   
     end
   
@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
       @client = Client.new(client_params)
   
       if @client.save
-        redirect_to home_path
+        redirect_to homes_path
       else
         flash[:danger] = "The account has not been created"
         redirect_to new_client_path
@@ -55,10 +55,8 @@ class ClientsController < ApplicationController
   
     private
   
-    def set_client
-      cookies.delete(:remember_token)
-  
-      @client = Client.find_by(cookies[:remember_token])
+    def set_client  
+      @client = Client.find(session[:user_id])
   
     end
   

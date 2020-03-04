@@ -1,0 +1,4 @@
+class Panier < ApplicationRecord
+
+
+end

@@ -1,0 +1,4 @@
+class Contient < ApplicationRecord
+
+
+end
