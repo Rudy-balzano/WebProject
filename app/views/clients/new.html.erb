@@ -1,0 +1,93 @@
+<style>
+  .form-signin {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+  }
+
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+</style>
+<div class="text-center form-signin">
+  <% if flash[:danger]  %>
+    <div class="alert alert-danger">
+      <%= flash[:danger] %>
+    </div>
+
+  <% end %>
+  <h3 class="mb-3 font-weight-normal p-3 border-bottom">Register</h3>
+  <%= form_with scope: :client, url: clients_path, local: true do |form| %>
+    <div class="d-md-flex flex-md-equal  justify-content-center align-content-start">
+
+      <div class="flex-fill p-1">
+        <label for="inputFirtName" class="sr-only">First name</label>
+        <%= form.text_field :prenom, class: 'form-control', placeholder: 'First name' %>
+      </div>
+      <div class="flex-fill p-1">
+        <label for="inputLastName" class="sr-only">Last Name</label>
+        <%= form.text_field :nom, class: 'form-control', placeholder: 'Last name' %>
+      </div>
+
+    </div>
+
+    <br>
+
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <%= form.text_field :mail, class: "form-control", placeholder: "Email address" %>
+    <br>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+    <br>
+    <label for="inputPasswordConfirmation" class="sr-only">Password Confirm</label>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm password" %>
+    <br>
+    <h4 class="mb-3 font-weight-normal p-3 border-bottom">Your address</h4>
+
+    <div class="d-md-flex ">
+
+      <div class="p-1 ">
+        <label for="inputNumber" class="sr-only">Number</label>
+        <%= form.text_field :numero, class: 'form-control', placeholder: 'Number name' %>
+      </div>
+      <div class="p-1 flex-grow-1">
+        <label for="inputStreet" class="sr-only">Street name</label>
+        <%= form.text_field :rue, class: 'form-control', placeholder: 'Street name' %>
+      </div>
+
+    </div>
+    <div class="d-md-flex ">
+      <div class="p-1">
+        <label for="inputPostCode" class="sr-only">Postcode</label><br>
+        <%= form.text_field :codePostal, class: 'form-control', placeholder: 'PostCode' %>
+      </div>
+      <div class="p-1 flex-grow-1">
+        <label for="inputCity" class="sr-only">City name</label><br>
+        <%= form.text_field :ville, class: 'form-control', placeholder: 'City name' %>
+      </div>
+
+    </div>
+    <br>
+
+    <%= form.submit "Register", class: 'btn btn-outline-secondary btn-lg btn-block' %>
+
+  <% end %>
+
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+</div>
