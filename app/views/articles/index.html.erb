@@ -12,6 +12,7 @@
           <a href="<%= article_path(article.id) %>" class="btn btn-secondary m-3">Consult</a>
         </p>
       </div>
+      <% if !current_admin.nil?%>
       <div>
         <p>
           <a href="<%= edit_article_path(article.id) %>" class="btn btn-secondary m-3">Edit</a>
@@ -24,14 +25,16 @@
 
         </p>
       </div>
+      <% end%>
     </div>
 
 
   <% end %>
 
-
+   <% if !current_admin.nil?%>
   <p>
     <a href="<%= new_article_path %>" class="btn btn-primary">New article</a>
   </p>
+  <% end %>
 
 </div>

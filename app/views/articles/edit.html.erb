@@ -1,11 +1,13 @@
-<h1>Editer l'article</h1>
+<% if !current_admin.nil? %>
+  <h1>Editer l'article</h1>
 
-<%= form_for @article do |f| %>
-  <div class="form-group">
-    <label>Nom de l'article</label>
-    <%= f.text_field :libelle, class: 'form-control' %>
-  </div>
+  <%= form_for @article do |f| %>
+    <div class="form-group">
+      <label>Nom de l'article</label>
+     <%= f.text_field :libelle, class: 'form-control' %>
+    </div>
 
+  <% end %>
+
+  <a href="/articles" class="btn btn-secondary">return</a>
 <% end %>
-
-<a href="/articles" class="btn btn-secondary">return</a>

@@ -34,13 +34,13 @@
 </head>
 
 <body>
-<% if !current_user.nil? %>
+<% if (!current_user.nil? || !current_admin.nil?) %>
 
   <header class="shadow d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-light border-bottom shadow-sm sticky-top">
     <h4 class="my-0 mr-md-auto font-weight-normal">Tit's n love</h4>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="/">Home</a>
-      <a class="p-2 text-dark" href="#">Cart</a>
+      <a class="p-2 text-dark" href="<%= panier_path(cookies[:panier]) %>">Cart</a>
       <a class="p-2 text-dark" href="/clients">My account</a>
     </nav>
       <a class="btn btn-outline-secondary" href="<%= deco_path(current_user.id) %>"  data-method="DESTROY ">Disconnect</a>
@@ -63,10 +63,9 @@
   <h4 class="my-0 mr-md-auto font-weight-normal">Tit's n love</h4>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="/">Home</a>
-    <a class="p-2 text-dark" href="#">Cart</a>
     <a class="p-2 text-dark" href="/sessions/new">Connect</a>
   </nav>
-  <a class="btn btn-outline-secondary" href="/clients/new">Register</a>
+  <a class="btn btn-outline-secondary" href="/admins/new">Register</a>
 </header>
 
 <div class="container">

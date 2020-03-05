@@ -1,2 +1,9 @@
 <h1> Your cart contains : </h1>
 
+<% @articles.each do |a| %>
+
+<% @article = Article.find_by_id(a.numArticle)%>
+
+<h2> <%= @article.libelle %> </h2>
+
+<% end %>

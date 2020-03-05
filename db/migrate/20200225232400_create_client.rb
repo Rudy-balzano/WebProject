@@ -12,14 +12,6 @@ class CreateClient < ActiveRecord::Migration[6.0]
         t.string :password_digest
     end
 
-    execute <<-SQL
-      ALTER TABLE clients
-        ADD CONSTRAINT clients_users_fk
-        FOREIGN KEY (numUser)
-        REFERENCES users(id)
-    SQL
-
-
   end
 end
 
