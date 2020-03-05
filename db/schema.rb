@@ -23,13 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_123618) do
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "libelle"
     t.float "prix"
-    t.integer "stock"
-    t.bigint "categorie"
-    t.string "type"
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "libelle"
+    t.string "categorie"
   end
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -52,13 +46,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_123618) do
 
   create_table "paniers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "numUser"
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "nom"
-    t.string "prenom"
-    t.string "mail"
-    t.string "password_digest"
+    t.boolean "valide", default: false
   end
 
 end

@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     private
   
     def article_params
-      params.require(:article).permit(:libelle)
+      params.require(:article).permit(:libelle, :prix, :categorie)
     end
   
     def set_article
@@ -56,3 +56,6 @@ class ArticlesController < ApplicationController
     end
   
   end
+
+
+  

@@ -27,7 +27,7 @@ class AdminsController < ApplicationController
   
     def destroy
   
-      session.delete(:user_id)
+      session.delete(:admin_id)
       @admin.destroy
       redirect_to homes_path
   
@@ -56,7 +56,7 @@ class AdminsController < ApplicationController
     private
   
     def set_admin  
-      @admin = Admin.find(session[:user_id])
+      @admin = Admin.find(session[:admin_id])
   
     end
   

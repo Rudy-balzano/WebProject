@@ -1,12 +1,12 @@
+<% if !current_admin.nil?%>
 <div  class="container">
   <h1>Articles </h1>
 
 
   <% @articles.each do |article| %>
-
-    <h2><%= article.libelle %></h2>
-
-    <div class="d-inline-flex flex-row">
+    <div class="d-inline-flex flew-row justify-content-start text-center border-bottom">
+    <div class="m-3"><h3><%= article.libelle %> : </h3></div>
+    <div class="m-3"><h3><%= article.prix %> euros </h3></div>
       <div>
         <p>
           <a href="<%= article_path(article.id) %>" class="btn btn-secondary m-3">Consult</a>
@@ -27,14 +27,19 @@
       </div>
       <% end%>
     </div>
+    
 
 
   <% end %>
 
-   <% if !current_admin.nil?%>
+   <% if !current_admin.nil? %>
   <p>
-    <a href="<%= new_article_path %>" class="btn btn-primary">New article</a>
+    <a href="<%= new_article_path %>" class="btn btn-outline-secondary mt-3">New article</a>
+    <a href="<%= new_category_path %>" class="btn btn-outline-secondary mt-3 ml-3">New category</a>
+
   </p>
   <% end %>
 
 </div>
+
+<% end %>

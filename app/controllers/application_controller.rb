@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     end
 
     def current_admin
-        if session[:user_id] && Admin.exists?(session[:user_id])
-            @admin ||= Admin.find(session[:user_id])
+        if session[:admin_id] && Admin.exists?(session[:admin_id]) 
+            @admin ||= Admin.find(session[:admin_id])
         else
             @admin = nil
         end

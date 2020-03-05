@@ -3,9 +3,7 @@ class CreateArticle < ActiveRecord::Migration[6.0]
     create_table :articles do |t|
       t.string :libelle
       t.float :prix
-      t.integer :stock
-      t.bigint :categorie
-      t.string :type
+      t.string :categorie
     end
 
   end

@@ -3,6 +3,7 @@ class CreatePanier < ActiveRecord::Migration[6.0]
     
     create_table :paniers do |t|
       t.bigint :numUser
+      t.boolean :valide ,default: false
     end
 
   end

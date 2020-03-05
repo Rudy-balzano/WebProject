@@ -1,16 +1,69 @@
+<style>
+  .form {
+    width: 100%;
+    max-width: 600px;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    margin: auto;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+  }
+
+  .form .checkbox {
+    font-weight: 400;
+  }
+
+  .form .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form .form-control:focus {
+    z-index: 2;
+  }
+</style>
+<div class="text-centerd form">
 <% if !current_admin.nil?%>
+
+<h3 class="mb-3 font-weight-normal p-3 border-bottom">New article</h3>
+<br>
+
 
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
     <p>
-      <%= form.label :libelle %><br>
-      <%= form.text_field :libelle %>
+    <label for="inputLibelle" class="sr-only">Product name</label>
+      <%= form.text_field :libelle, class: "form-control", placeholder: "Product name"%>
     </p>
+
+    <p>
+    <label for="inputPrix" class="sr-only">Price</label>
+      <%= form.text_field :prix, class: "form-control", placeholder: "Price"%>
+    </p>
+    <br>
+    <h5 class="mb-3 font-weight-light p-2 border-bottom">Category</h5>
+
+    <div class="p-2">
+    <%= check_box_tag(:categorie)%>
+    <%= label_tag(:categorie, "Clothes") %>
+    </div>
+    <div class="p-2">
+    <%= check_box_tag(:categorie) %>
+    <%= label_tag(:categorie, "Wearable goodies") %>
+    </div>
+    <div class="p-2">
+    <%= check_box_tag(:categorie) %>
+    <%= label_tag(:categorie, "Goodies") %>
+    </div>
   
   
     <p>
-      <%= form.submit %>
+      <%= form.submit "Create", class: 'btn btn-outline-secondary btn-lg btn-block'%>
     </p>
   <% end %>
 
 <% end %>
+</div>
   

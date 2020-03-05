@@ -14,22 +14,18 @@ class PaniersController < ApplicationController
     end
 
     def create
-
-        if Panier.find_by_numUser(session[:user_id])
-            @panier = Panier.find_by_numUser(session[:user_id])
-            cookies[:panier] = @panier.id
-        else
-
-            @panier = Panier.new
-            @panier.numUser = session[:user_id]
-
-            @panier.save
-            cookies[:panier] = @panier.id
-            
-        end
-
+        @panier = Panier.new
+        @panier.numUser = session[:user_id]
+        @panier.save
+        cookies[:panier] = @panier.id
         redirect_to homes_path
         
+    end
+
+    def index
+
+        @paniers = Panier.all
+
     end
 
 end

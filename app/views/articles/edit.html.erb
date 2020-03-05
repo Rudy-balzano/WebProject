@@ -1,13 +1,47 @@
+<style>
+  .form {
+    width: 100%;
+    max-width: 600px;
+    padding-left: 9rem;
+    padding-right: 9rem;
+    margin: auto;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+  }
+
+  .form .checkbox {
+    font-weight: 400;
+  }
+
+  .form .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form .form-control:focus {
+    z-index: 2;
+  }
+</style>
+<div class="text-centerd form">
 <% if !current_admin.nil? %>
-  <h1>Editer l'article</h1>
+  <h3 class="mb-3 font-weight-normal p-3 border-bottom">Edit an article</h3>
 
   <%= form_for @article do |f| %>
     <div class="form-group">
-      <label>Nom de l'article</label>
+      <label>Article name</label>
      <%= f.text_field :libelle, class: 'form-control' %>
+      <br>
+     <label>Price</label>
+     <%= f.text_field :prix, class: 'form-control' %>
     </div>
-
+    <div class="d-flex justify-content-start">
+      <div class=""><%= f.submit "Update", class: 'btn btn-outline-success btn-lg btn-block'%></div>
+      <div class="pl-4"><a href="/articles" class="btn btn-outline-secondary btn-lg btn-block">return</a></div>
+    </div>
   <% end %>
 
-  <a href="/articles" class="btn btn-secondary">return</a>
 <% end %>
+</div>

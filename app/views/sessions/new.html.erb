@@ -1,5 +1,5 @@
 <style>
-  .form-signin {
+  .form {
     width: 100%;
     max-width: 600px;
     padding-left: 9rem;
@@ -9,11 +9,11 @@
     padding-top: 2rem;
   }
 
-  .form-signin .checkbox {
+  .form .checkbox {
     font-weight: 400;
   }
 
-  .form-signin .form-control {
+  .form .form-control {
     position: relative;
     box-sizing: border-box;
     height: auto;
@@ -21,12 +21,12 @@
     font-size: 16px;
   }
 
-  .form-signin .form-control:focus {
+  .form .form-control:focus {
     z-index: 2;
   }
 </style>
 
-<div class="text-center form-signin">
+<div class="text-center form">
   <% if flash[:alert]  %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
