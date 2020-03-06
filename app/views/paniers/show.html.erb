@@ -3,13 +3,17 @@
   <br>
     <% @articles.each do |a| %>
         <% @article = Article.find_by_id(a.numArticle)%>
-        <div class="d-flex flew-row justify-content-start border-bottom m-2">
+        <div class="d-flex flew-row justify-content-start border-bottom p-2">
             <div class=" col-md-3 m-2"><h3><%= @article.libelle %> : </h3></div>
             <div class="m-2 col-md-3"><h3><%= @article.prix %> € </h3></div>
-            <a href="<%= contient_path(a.id) %>" class="btn btn-danger" data-confirm="Sure?" data-method="DELETE">Delete article</a>
+            <div class="m-2"><a href="<%= contient_path(a.id) %>" class="btn btn-danger" data-confirm="Sure?" data-method="DELETE">Delete article</a></div>
         </div>
 
     <% end %>
+
+    <div class="p-3">
+    <p> Before confirming, send <%= @prixpanier %> € to Titouan Merland (06 67 76 39 27) using LyfPay! If you confirm without doing it, your cart will be deleted</p>
+    </div>
 
         <a href="<%= confirm_path(@panier.id)%>" class="btn btn-outline-success">Confirm cart</a>
 

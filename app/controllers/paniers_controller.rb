@@ -6,6 +6,12 @@ class PaniersController < ApplicationController
 
         @articles = Contient.where(numPanier: cookies[:panier])
         @confirmed = @panier.valide
+        @prixpanier = 0
+
+        @articles.each do |a| 
+            article = Article.find_by_id(a.numArticle)
+            @prixpanier += article.prix
+        end
 
     end
 

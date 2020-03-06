@@ -89,7 +89,7 @@
         <%= c.submit "Edit", class: 'btn btn-outline-success' %>
       </div>
       <div class="p-2">
-        <a href="<%= clients_path %>" class="btn btn-outline-secondary">return</a>
+        <a href="<%= client_path(session[:user_id]) %>" class="btn btn-outline-secondary">return</a>
       </div>
     </div>
 

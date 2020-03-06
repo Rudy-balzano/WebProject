@@ -11,7 +11,7 @@ class ContientsController < ApplicationController
             flash[:notice] = "Added with success"
         end
 
-        redirect_to panier_path(cookies[:panier])
+        redirect_to articles_path
 
     end
 

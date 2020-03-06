@@ -13,9 +13,9 @@
   <p class="border-bottom pb-4"><strong>Address : </strong><%= @client.numero.to_s + " " + @client.rue + " " + @client.codePostal.to_s + " " + @client.ville %></p>
 
   <div class="d-flex justify-content-start pt-4">
-
+    <% if !current_admin.nil? %>
     <div class=""><a href="<%= clients_path %>" class="btn btn-outline-secondary mr-2"> Return </a></div>
-
+    <% end %>
     <div class=""><a href="<%= edit_client_path(@client.id) %>" class="btn btn-outline-secondary mr-2">Edit</a></div>
 
     <div class=""><a href="<%= client_path(@client.id) %>" class="btn btn-danger " data-confirm="Ae you sure?" data-method="DELETE">Delete account</a></div>
