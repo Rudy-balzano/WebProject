@@ -41,3 +41,15 @@ body {
   height: 100px;
   padding-top: 30px;
 }
+
+.side{
+
+    min-width: 25%;
+}
+
+.img-thumbnail{
+    margin: 2rem;
+    margin-left: 7%;
+    margin-right: 7%;
+    width: 12rem;
+  }
