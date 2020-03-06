@@ -1,19 +1,33 @@
-<div class="container">
+<% if !current_admin.nil?%>
+<div  class="container">
+  <h1 class="text-center p-2 border-bottom">Clients </h1>
   <br>
-  <br>
-  <h1 class="border-bottom pb-3 pt-3">Your informations</h1>
-  <br>
-  <p><strong>First name : </strong><%= @client.prenom %></p>
-  <p><strong>Last name : </strong><%= @client.nom %></p>
-  <p><strong>Mail : </strong><%= @client.mail %></p>
-  <p class="border-bottom pb-4"><strong>Address : </strong><%= @client.numero.to_s + " " + @client.rue + " " + @client.codePostal.to_s + " " + @client.ville %></p>
 
-  <div class="d-flex justify-content-start pt-4">
 
-    <div class=""><a href="<%= edit_client_path(@client.id) %>" class="btn btn-secondary mr-2">Edit</a></div>
-
-    <div class=""><a href="<%= client_path(@client.id) %>" class="btn btn-danger " data-confirm="Ae you sure?" data-method="DELETE">Delete account</a></div>
-
+  <% @clients.each do |client| %>
+  <div class="d-flex flew-row justify-content-start text-center border-bottom">
+    <div class="m-3 col-md-2">
+      <h3><%= client.prenom %> </h3>
+    </div>
+    <div class="m-3 col-md-2">
+      <h3> <%= client.nom%> </h3>
+    </div>
+    <div>
+      <p>
+        <a href="<%= client_path(client.id) %>" class="btn btn-outline-secondary m-3">Consult</a>
+      </p>
+    </div>
+    <div>
+      <p>
+        <a href="<%= edit_client_path(client.id) %>" class="btn btn-outline-secondary m-3">Edit</a>
+      </p>
+    </div>
+    <div>
+      <p>
+        <a href="<%=client_path(client.id) %>" class="btn btn-danger m-3" data-confirm="Sure?" data-method="DELETE">Delete client</a>
+      </p>
+    </div>
   </div>
-
+  <% end %>
 </div>
+<% end %>

@@ -15,4 +15,9 @@ class ContientsController < ApplicationController
 
     end
 
+    def destroy
+        @article = Contient.find(params[:id])
+        @article.destroy
+    end
+
 end

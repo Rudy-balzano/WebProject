@@ -1,11 +1,16 @@
-<h1> Your cart contains : </h1>
+<div  class="container">
+  <h1 class="text-center p-2 border-bottom">Your cart </h1>
+  <br>
+    <% @articles.each do |a| %>
+        <% @article = Article.find_by_id(a.numArticle)%>
+        <div class="d-flex flew-row justify-content-start border-bottom m-2">
+            <div class=" col-md-3 m-2"><h3><%= @article.libelle %> : </h3></div>
+            <div class="m-2 col-md-3"><h3><%= @article.prix %> € </h3></div>
+            <a href="<%= contient_path(a.id) %>" class="btn btn-danger" data-confirm="Sure?" data-method="DELETE">Delete article</a>
+        </div>
 
-<% @articles.each do |a| %>
+    <% end %>
 
-<% @article = Article.find_by_id(a.numArticle)%>
+        <a href="<%= confirm_path(@panier.id)%>" class="btn btn-outline-success">Confirm cart</a>
 
-<h2> <%= @article.libelle %> </h2>
-
-<% end %>
-
-<a href="" class="btn btn-outline-success">Confirm</a>
+</div>

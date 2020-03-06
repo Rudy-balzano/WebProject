@@ -1,8 +1,10 @@
 class ClientsController < ApplicationController
 
-    before_action :set_client, only: [:index, :update, :destroy, :edit]
+    before_action :set_client, only: [:update, :destroy, :edit, :show]
   
     def index
+
+      @clients = Client.all
   
     end
   
@@ -56,7 +58,12 @@ class ClientsController < ApplicationController
     private
   
     def set_client  
-      @client = Client.find(session[:user_id])
+      if !current_user.nil?
+        @client = Client.find(session[:user_id]) 
+      elsif !current_admin.nil?
+        @client = Client.find(params[:id])
+      end
+
   
     end
   

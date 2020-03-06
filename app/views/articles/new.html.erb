@@ -46,18 +46,14 @@
     <h5 class="mb-3 font-weight-light p-2 border-bottom">Category</h5>
 
     <div class="p-2">
-    <%= check_box_tag(:categorie)%>
-    <%= label_tag(:categorie, "Clothes") %>
+        <%= form.select(:categorie, [['Clothes', 1], ['Goodies', 2], ['Others', 3]], { class: "dropdown" })%>
     </div>
-    <div class="p-2">
-    <%= check_box_tag(:categorie) %>
-    <%= label_tag(:categorie, "Wearable goodies") %>
+    
+    <br>
+    <div class="mb-2">
+    <%= form.file_field :avatar, class: "form-control"%>  
     </div>
-    <div class="p-2">
-    <%= check_box_tag(:categorie) %>
-    <%= label_tag(:categorie, "Goodies") %>
-    </div>
-  
+    <br>
   
     <p>
       <%= form.submit "Create", class: 'btn btn-outline-secondary btn-lg btn-block'%>

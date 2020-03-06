@@ -1,0 +1,26 @@
+<div class="container">
+  <br>
+  <br>
+  <% if !current_admin.nil? %>
+  <h1 class="border-bottom pb-3 pt-3">Client informations</h1>
+  <% else %>
+    <h1 class="border-bottom pb-3 pt-3">Your informations</h1>
+  <% end %>
+  <br>
+  <p><strong>First name : </strong><%= @client.prenom %></p>
+  <p><strong>Last name : </strong><%= @client.nom %></p>
+  <p><strong>Mail : </strong><%= @client.mail %></p>
+  <p class="border-bottom pb-4"><strong>Address : </strong><%= @client.numero.to_s + " " + @client.rue + " " + @client.codePostal.to_s + " " + @client.ville %></p>
+
+  <div class="d-flex justify-content-start pt-4">
+
+    <div class=""><a href="<%= clients_path %>" class="btn btn-outline-secondary mr-2"> Return </a></div>
+
+    <div class=""><a href="<%= edit_client_path(@client.id) %>" class="btn btn-outline-secondary mr-2">Edit</a></div>
+
+    <div class=""><a href="<%= client_path(@client.id) %>" class="btn btn-danger " data-confirm="Ae you sure?" data-method="DELETE">Delete account</a></div>
+
+
+  </div>
+
+</div>

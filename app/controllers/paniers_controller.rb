@@ -1,9 +1,11 @@
 class PaniersController < ApplicationController
 
+    before_action :set_panier, only: [:show, :confirm]
+
     def show
 
-        @panier = Panier.find_by_id(cookies[:panier])
         @articles = Contient.where(numPanier: cookies[:panier])
+        @confirmed = @panier.valide
 
     end
 
@@ -27,5 +29,19 @@ class PaniersController < ApplicationController
         @paniers = Panier.all
 
     end
+
+    def confirm
+        @panier.valide = true
+        flash[:notice] = "Your cart has been confirmed"
+        create
+    end
+
+
+    private
+
+    def set_panier
+        @panier = Panier.find_by_id(cookies[:panier])
+    end
+  
 
 end

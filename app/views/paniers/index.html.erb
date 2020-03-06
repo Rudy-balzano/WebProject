@@ -1,1 +1,27 @@
-<%= current_user.id %>
+<% if !current_admin.nil?%>
+<div  class="container">
+  <h1 class="text-center p-2 border-bottom">Commands </h1>
+  <br>
+
+
+  <% @paniers.each do |panier| %>
+  <div class="d-flex p-2 border-bottom justify-content-between">
+    <div>
+        <h2> Client n°<%= panier.numUser %></h2>
+    </div>
+    <div>
+        <a href="<%= panier_path(panier.id) %>" data-confirm="Sure" data-method="DELETE" class="btn btn-danger">Delete cart</a>
+    </div>
+   </div>
+    <% Contient.where(numPanier: panier.id).each do |a| %>
+
+        <% @article = Article.find_by_id(a.numArticle)%>
+        <div class="d-flex flew-row justify-content-start border-bottom m-2">
+            <div class=" col-md-3 m-2"><h4><%= @article.libelle %> : </h4></div>
+            <div class="m-2 col-md-3"><h4><%= @article.prix %> € </h4></div>
+        </div>
+
+    <% end %>
+  <% end %>
+</div>
+<% end %>

@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  get 'panier#confirm', to:'paniers#confirm', as: 'confirm'
+
 end

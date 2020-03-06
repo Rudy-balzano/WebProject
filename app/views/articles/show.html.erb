@@ -1,9 +1,33 @@
-<h1> <%= @article.libelle %></h1>
+<style>
 
-<p><%= @article.prix %></p>
+    .side{
+
+        min-width: 25%;
+    }
+
+</style>
+
+<main class="container">
+
+<div class="d-flex m-5 pt-5 align-items-stretch justify-content-between">
+<div class="m-5" >
+ <%= image_tag @article.avatar.variant(resize_to_fit: [400, 300]), :class => "img-thumbnail shadow"%>
+</div>
+
+<div class="bg-light  p-4 side">
+<h2 class="border-bottom m-2 pb-2"> <%= @article.libelle %></h2>
+<br>
+<h3> <%= @article.prix %> € </h3>
+<br>
+<h3> <%= @article.categorie%> </h3>
+<br>
+<div>
+<% if !current_user.nil? %> <a href="<%= contients_path %>" class="btn btn-outline-success m-1" data-method="CREATE">Add to cart</a> <% end %>
+
+<a href="/articles" class="btn btn-secondary m-1">return</a>
+
+</div>
+
+</main>
 
 
-
-<a href="<%= contients_path %>" class="btn btn-outline-success" data-method="CREATE">Add to cart</a>
-
-<a href="/articles" class="btn btn-secondary">return</a>

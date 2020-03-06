@@ -33,7 +33,15 @@ class ArticlesController < ApplicationController
     def create
 
       @article = Article.new(article_params)
-      @article.save
+      if @article.categorie.to_i == 1 
+        @article.categorie = "Clothes"
+      elsif @article.categorie.to_i == 2
+        @article.categorie = "Goodies"
+      else
+        @article.categorie = "Others"
+      end
+      
+      @article.save!
       redirect_to @article
       
     end
@@ -48,7 +56,7 @@ class ArticlesController < ApplicationController
     private
   
     def article_params
-      params.require(:article).permit(:libelle, :prix, :categorie)
+      params.require(:article).permit(:libelle, :prix, :categorie, :avatar)
     end
   
     def set_article

@@ -3,7 +3,11 @@
 
   <div class="border-bottom">
 
-    <h1>Edit your account</h1>
+    <% if !current_admin.nil? %>
+  <h1 class="border-bottom pb-3 pt-3">Edit client informations</h1>
+  <% else %>
+    <h1 class="border-bottom pb-3 pt-3">Edit your informations</h1>
+  <% end %>
     <br>
 
   </div>

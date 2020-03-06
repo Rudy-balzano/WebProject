@@ -4,6 +4,7 @@ class CreateArticle < ActiveRecord::Migration[6.0]
       t.string :libelle
       t.float :prix
       t.string :categorie
+      
     end
 
   end
