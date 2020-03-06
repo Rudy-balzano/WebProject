@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  get 'article#clothes', to: 'articles#clothes', as: 'clothes'
+
+  get 'articles#others', to: 'articles#others', as: 'others'
+
   resources :clients
 
   resources :sessions

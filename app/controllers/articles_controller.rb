@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
 
-  require 'ImageResize'
 
     before_action :set_article, only: [:update, :show, :edit, :destroy]
   
@@ -15,6 +14,18 @@ class ArticlesController < ApplicationController
       cookies.delete(:last_article)
       cookies[:last_article] = @article.id
   
+    end
+
+    def clothes
+
+      @articles = Article.where(categorie: "Clothes")
+
+    end
+
+    def others
+
+      @articles = Article.where(categorie: "Goodies").or(Article.where(categorie: "Others"))
+
     end
   
     def edit

@@ -40,9 +40,20 @@ body {
 .article-container{
     min-height: 100%;
     position: relative;
+    margin-top: 5px;
 }
-
+ 
 .article-footer {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    height: 50px;
     
 }
 

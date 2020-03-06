@@ -1,0 +1,68 @@
+<%= stylesheet_link_tag "application.css" %>
+
+<% if !current_admin.nil?%>
+<div  class="container">
+  <h1 class="border-bottom p-2 text-center"> Articles </h1>
+
+<br>
+  <% @articles.each do |article| %>
+    <div class="d-flex flew-row justify-content-start border-bottom m-2">
+    <div class=" col-md-3 m-2"><h3><%= article.libelle %> : </h3></div>
+    <div class="m-2 col-md-3"><h3><%= article.prix %> € </h3></div>
+      <div>
+        <p>
+          <a href="<%= article_path(article.id) %>" class="btn btn-outline-secondary m-3">Consult</a>
+        </p>
+      </div>
+      <% if !current_admin.nil?%>
+      <div>
+        <p>
+          <a href="<%= edit_article_path(article.id) %>" class="btn btn-outline-secondary m-3">Edit</a>
+        </p>
+      </div>
+      <div>
+
+        <p>
+          <a href="<%=article_path(article.id) %>" class="btn btn-danger m-3" data-confirm="Sure?" data-method="DELETE">Delete article</a>
+
+        </p>
+      </div>
+      <% end%>
+    </div>
+    
+
+
+  <% end %>
+
+   <% if !current_admin.nil? %>
+  <p>
+    <a href="<%= new_article_path %>" class="btn btn-outline-success mt-3">New article</a>
+  </p>
+  <% end %>
+
+</div>
+
+<% else %>
+
+<main class="container text-center bg-light">
+<h1 class="border-bottom p-4">New collection</h1>
+<br>
+<div class="d-flex flex-wrap justify-content-center">
+<% @articles.each do |article| %>
+    <% %>
+
+    <div class="border shadow articles">
+    <div class="article-container">
+      <a href="<%= article_path(article.id)%>">
+        <%= image_tag article.avatar.variant(resize_to_fit: [150, 200])%> 
+        </a>
+        <div class="caption border-top article-footer">
+          <h4 class="pt-1"><%= article.libelle %></h4>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>
+</main>
+
+<% end %>

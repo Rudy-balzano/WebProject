@@ -4,8 +4,8 @@
     <% @articles.each do |a| %>
         <% @article = Article.find_by_id(a.numArticle)%>
         <div class="d-flex flew-row justify-content-start border-bottom p-2">
-            <div class=" col-md-3 m-2"><h3><%= @article.libelle %> : </h3></div>
-            <div class="m-2 col-md-3"><h3><%= @article.prix %> € </h3></div>
+            <div class=" col-3 m-2"><h3><%= @article.libelle %> : </h3></div>
+            <div class="m-2 col-3"><h3><%= @article.prix %> € </h3></div>
             <div class="m-2"><a href="<%= contient_path(a.id) %>" class="btn btn-danger" data-confirm="Sure?" data-method="DELETE">Delete article</a></div>
         </div>
 
