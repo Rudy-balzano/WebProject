@@ -30,6 +30,8 @@ gem "google-cloud-storage", "~> 1.8", require: false
 
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
+gem "ImageResize", "~> 0.0.5"
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

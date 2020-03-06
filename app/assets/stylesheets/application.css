@@ -37,6 +37,15 @@ body {
     height: 110px;
 }
 
+.article-container{
+    min-height: 100%;
+    position: relative;
+}
+
+.article-footer {
+    
+}
+
 .bas {
   height: 100px;
   padding-top: 30px;
@@ -47,9 +56,15 @@ body {
     min-width: 25%;
 }
 
-.img-thumbnail{
+.articles{
     margin: 2rem;
-    margin-left: 7%;
-    margin-right: 7%;
-    width: 12rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 14rem;
+    height: 15rem;
+    background-color: white;
+  }
+
+  .height-home{
+      min-height: 20rem;
   }

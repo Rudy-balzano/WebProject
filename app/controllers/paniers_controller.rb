@@ -1,6 +1,6 @@
 class PaniersController < ApplicationController
 
-    before_action :set_panier, only: [:show, :confirm]
+    before_action :set_panier, only: [:show, :confirm, :destroy]
 
     def show
 
@@ -28,6 +28,14 @@ class PaniersController < ApplicationController
         cookies[:panier] = @panier.id
         redirect_to homes_path
         
+    end
+
+    def destroy
+
+        @panier = Panier.find(params[:id])
+        @panier.destroy
+        redirect_to paniers_path
+
     end
 
     def index

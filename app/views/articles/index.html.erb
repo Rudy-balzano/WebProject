@@ -49,14 +49,17 @@
 <br>
 <div class="d-flex flex-wrap justify-content-center">
 <% @articles.each do |article| %>
+    <% %>
 
-    <div class="img-thumbnail shadow">
+    <div class="border shadow articles">
+    <div class="article-container">
       <a href="<%= article_path(article.id)%>">
-        <%= image_tag article.avatar.variant(resize_to_fit: [200, 150])%> 
+        <%= image_tag article.avatar.variant(resize_to_fit: [150, 200])%> 
         </a>
-        <div class="caption border-top">
+        <div class="caption border-top article-footer">
           <h4 class="pt-1"><%= article.libelle %></h4>
         </div>
+      </div>
     </div>
 <% end %>
 </div>

@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  require 'ImageResize'
+
     before_action :set_article, only: [:update, :show, :edit, :destroy]
   
     def index
@@ -62,6 +65,7 @@ class ArticlesController < ApplicationController
     def set_article
       @article = Article.find(params[:id])
     end
+
   
   end
 
