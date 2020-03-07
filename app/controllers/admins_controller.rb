@@ -34,6 +34,8 @@ class AdminsController < ApplicationController
     end
   
     def new
+
+      @admin = Admin.new
   
     end
   
@@ -45,8 +47,7 @@ class AdminsController < ApplicationController
       if @admin.save
         redirect_to homes_path
       else
-        flash[:danger] = "The account has not been created"
-        redirect_to new_admin_path
+        render 'new'
       end
   
   

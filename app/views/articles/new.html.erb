@@ -3,6 +3,16 @@
 <div class="text-centerd form thin">
 <% if !current_admin.nil?%>
 
+ <% if @article.errors.any?  %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @article.errors.full_messages.each do |message| %>
+          <li> <%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+  <% end %>
+
 <h3 class="mb-3 font-weight-normal p-3 border-bottom">New article</h3>
 <br>
 

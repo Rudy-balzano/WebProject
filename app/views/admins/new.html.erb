@@ -1,11 +1,14 @@
 <%= stylesheet_link_tag "forms.css" %>
-
+<% if !current_admin.nil? %>
 <div class="text-center form">
-  <% if flash[:danger]  %>
+   <% if @admin.errors.any?  %>
     <div class="alert alert-danger">
-      <%= flash[:danger] %>
+      <ul>
+        <% @admin.errors.full_messages.each do |message| %>
+          <li> <%= message %></li>
+        <% end %>
+        </ul>
     </div>
-
   <% end %>
   <h3 class="mb-3 font-weight-normal p-3 border-bottom">Creating a new admin</h3>
   <%= form_with scope: :admin, url: admins_path, local: true do |form| %>
@@ -42,3 +45,4 @@
 
   <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
 </div>
+<% end %>

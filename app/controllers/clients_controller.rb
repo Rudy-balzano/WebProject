@@ -31,11 +31,17 @@ class ClientsController < ApplicationController
   
       session.delete(:user_id)
       @client.destroy
-      redirect_to homes_path
+      if !current_admin.nil?
+        redirect_to clients_path
+      else 
+        redirect_to homes_path
+      end
   
     end
   
     def new
+
+      @client = Client.new
   
     end
   
@@ -47,8 +53,7 @@ class ClientsController < ApplicationController
       if @client.save
         redirect_to homes_path
       else
-        flash[:danger] = "The account has not been created"
-        redirect_to new_client_path
+        render 'new'
       end
   
   

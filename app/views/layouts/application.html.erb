@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Site</title>
+  <title>Tit's & Love</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -42,6 +42,7 @@
       <a class="p-2 text-dark" href="/">Home</a>
       <a class="p-2 text-dark" href="<%= clients_path %>">Clients</a>
       <a class="p-2 text-dark" href="<%= paniers_path %>">Carts</a>
+      <a class="p-2 text-dark" href="<%= articles_path %>">Articles</a>
       <a class="p-2 text-dark" href="/admins">Admin account</a>
     </nav>
       <a class="btn btn-outline-secondary" href="<%= deco_path(current_admin.id) %>"  data-method="DESTROY ">Disconnect</a>

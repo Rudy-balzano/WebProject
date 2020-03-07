@@ -41,6 +41,8 @@ class ArticlesController < ApplicationController
     end
   
     def new
+
+      @article = Article.new
   
     end
   
@@ -55,8 +57,11 @@ class ArticlesController < ApplicationController
         @article.categorie = "Others"
       end
       
-      @article.save!
-      redirect_to @article
+      if @article.save
+        redirect_to @article
+      else
+        render 'new'
+      end
       
     end
   
