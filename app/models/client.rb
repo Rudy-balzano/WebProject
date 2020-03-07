@@ -10,7 +10,7 @@ class Client < ApplicationRecord
 
     validates :rue, format: {with: /\A[a-zA-Z]+$\z/, message: " : Invalid street name"}
 
-    validates :ville, format: {with: /\A[a-zA-Z]+$\z/, message: " : Invalid city name"}
+    validates :ville, presence: true
 
     validates :numero, presence: true
 

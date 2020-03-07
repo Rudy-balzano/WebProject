@@ -1,10 +1,9 @@
 <%= stylesheet_link_tag "forms.css" %>
 
-<div class="text-centerd form thin">
 <% if !current_admin.nil?%>
 
  <% if @article.errors.any?  %>
-    <div class="alert alert-danger">
+    <div class="container alert alert-danger">
       <ul>
         <% @article.errors.full_messages.each do |message| %>
           <li> <%= message %></li>
@@ -12,6 +11,9 @@
         </ul>
     </div>
   <% end %>
+
+
+<div class="text-centerd form thin">
 
 <h3 class="mb-3 font-weight-normal p-3 border-bottom">New article</h3>
 <br>

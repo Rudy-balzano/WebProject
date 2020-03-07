@@ -11,10 +11,15 @@ class ArticlesController < ApplicationController
   
     def show
 
+      #On crée un cookie "last_article" qui permet de stocker l'id de l'article visité
+      #Si l'utilisateur ajoute l'article au panier aalors c'est ce cookie qui sert a savoir quel article il faut ajouter
+
       cookies.delete(:last_article)
       cookies[:last_article] = @article.id
   
     end
+
+    #Les fonctions clothes et others permettent d'afficher seulement les articles de la categorie voulue
 
     def clothes
 
@@ -33,11 +38,20 @@ class ArticlesController < ApplicationController
     end
   
     def update
+
       @article.update(article_params)
-  
-      flash[:notice] = "Your article has been modified"
-  
+
+      if @article.categorie.to_i == 1 
+        @article.update(:categorie => 'Clothes')
+      elsif @article.categorie.to_i == 2
+        @article.update(:categorie => 'Goodies')
+      else
+        @article.update(:categorie => 'Others')
+      end
+
+      flash[:notice] = "Your article has been modified" 
       redirect_to '/articles'
+
     end
   
     def new
@@ -49,6 +63,7 @@ class ArticlesController < ApplicationController
     def create
 
       @article = Article.new(article_params)
+
       if @article.categorie.to_i == 1 
         @article.categorie = "Clothes"
       elsif @article.categorie.to_i == 2
@@ -69,17 +84,22 @@ class ArticlesController < ApplicationController
   
       @article.destroy
       redirect_to '/articles'
+      
     end
   
   
     private
   
     def article_params
+
       params.require(:article).permit(:libelle, :prix, :categorie, :avatar)
+
     end
   
     def set_article
+
       @article = Article.find(params[:id])
+
     end
 
   

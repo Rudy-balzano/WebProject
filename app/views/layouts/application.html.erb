@@ -20,7 +20,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="/">Home</a>
       <a class="p-2 text-dark" href="<%= panier_path(cookies[:panier]) %>">Cart</a>
-      <a class="p-2 text-dark" href="<%= client_path(session[:user_id]) %>">My account</a>
+      <a class="p-2 text-dark" href="<%= client_path(cookies[:user_id]) %>">My account</a>
     </nav>
       <a class="btn btn-outline-secondary" href="<%= deco_path(current_user.id) %>"  data-method="DESTROY ">Disconnect</a>
   </header>

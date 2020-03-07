@@ -5,7 +5,6 @@ class PaniersController < ApplicationController
     def show
 
         @articles = Contient.where(numPanier: cookies[:panier])
-        @confirmed = @panier.valide
         @prixpanier = 0
 
         @articles.each do |a| 
@@ -22,8 +21,9 @@ class PaniersController < ApplicationController
     end
 
     def create
+
         @panier = Panier.new
-        @panier.numUser = session[:user_id]
+        @panier.numUser = cookies[:user_id]
         @panier.save
         cookies[:panier] = @panier.id
         redirect_to homes_path
@@ -44,17 +44,24 @@ class PaniersController < ApplicationController
 
     end
 
+    #La methode confirm sauvegarde le panier pour que l'admin puisse le voir, et crée un autre panier pour que le client
+    #puisse continuer ses achats
+
     def confirm
+
         @panier.valide = true
         flash[:notice] = "Your cart has been confirmed"
         create
+
     end
 
 
     private
 
     def set_panier
+
         @panier = Panier.find_by_id(cookies[:panier])
+
     end
   
 

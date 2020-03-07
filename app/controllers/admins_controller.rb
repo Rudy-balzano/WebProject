@@ -13,9 +13,7 @@ class AdminsController < ApplicationController
     def update
   
       @admin.update(admin_params)
-  
       flash[:notice] = "Your account has been modified"
-  
       redirect_to '/admins'
   
     end
@@ -27,7 +25,7 @@ class AdminsController < ApplicationController
   
     def destroy
   
-      session.delete(:admin_id)
+      cookies.delete(:admin_id)
       @admin.destroy
       redirect_to homes_path
   
@@ -57,7 +55,7 @@ class AdminsController < ApplicationController
     private
   
     def set_admin  
-      @admin = Admin.find(session[:admin_id])
+      @admin = Admin.find(cookies[:admin_id])
   
     end
   
@@ -65,5 +63,5 @@ class AdminsController < ApplicationController
       params.require(:admin).permit(:nom, :prenom, :password, :mail, :password_confirmation)
     end
   
-  end
+end
   

@@ -1,5 +1,6 @@
 class ContientsController < ApplicationController
 
+    #Relie un article au panier du client en utilisant le numPanier et le numArticle stockés dans les cookies
 
     def create
 
@@ -16,8 +17,10 @@ class ContientsController < ApplicationController
     end
 
     def destroy
+
         @article = Contient.find(params[:id])
         @article.destroy
+
     end
 
 end

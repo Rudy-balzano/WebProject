@@ -1,8 +1,7 @@
 <%= stylesheet_link_tag "forms.css" %>
 
-<div class="text-center form">
   <% if @client.errors.any?  %>
-    <div class="alert alert-danger">
+    <div class="container alert alert-danger">
       <ul>
         <% @client.errors.full_messages.each do |message| %>
           <li> <%= message %></li>
@@ -10,6 +9,8 @@
         </ul>
     </div>
   <% end %>
+
+<div class="text-center form">
   <h3 class="mb-3 font-weight-normal p-3 border-bottom">Register</h3>
   <%= form_with scope: :client, url: clients_path, local: true do |form| %>
     <div class="d-md-flex flex-md-equal  justify-content-center align-content-start">

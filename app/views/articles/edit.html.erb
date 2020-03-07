@@ -7,11 +7,17 @@
   <%= form_for @article do |f| %>
     <div class="form-group">
       <label>Article name</label>
-     <%= f.text_field :libelle, class: 'form-control' %>
+      <%= f.text_field :libelle, class: 'form-control' %>
       <br>
-     <label>Price</label>
-     <%= f.text_field :prix, class: 'form-control' %>
-    </div>
+      <label>Price</label>
+      <%= f.text_field :prix, class: 'form-control' %>
+      <div class="p-2">
+        <label>Category</label>
+        <%= f.select(:categorie, [['Clothes', 1], ['Goodies', 2], ['Others', 3]], { class: "dropdown" })%>
+      </div>
+      <div class="mb-2">
+        <%= f.file_field :avatar, class: "form-control"%>  
+      </div>
     <div class="d-flex justify-content-start">
       <div class=""><%= f.submit "Update", class: 'btn btn-outline-success btn-lg btn-block'%></div>
       <div class="pl-4"><a href="/articles" class="btn btn-outline-secondary btn-lg btn-block">return</a></div>
