@@ -6,9 +6,10 @@
 
 <br>
   <% @articles.each do |article| %>
-    <div class="d-flex flew-row justify-content-start border-bottom m-2">
-    <div class=" col-md-3 m-2"><h3><%= article.libelle %> : </h3></div>
-    <div class="m-2 col-md-3"><h3><%= article.prix %> € </h3></div>
+    <div class="d-sm-flex flew-row justify-content-start border-bottom m-2">
+    <div class="col-3 m-2"><h3><%= article.libelle %> : </h3></div>
+    <div class="m-2 col-3"><h3><%= article.prix %> € </h3></div>
+    <div class="d-flex">
       <div>
         <p>
           <a href="<%= article_path(article.id) %>" class="btn btn-outline-secondary m-3">Consult</a>
@@ -26,6 +27,7 @@
           <a href="<%=article_path(article.id) %>" class="btn btn-danger m-3" data-confirm="Sure?" data-method="DELETE">Delete article</a>
 
         </p>
+      </div>
       </div>
       <% end%>
     </div>
