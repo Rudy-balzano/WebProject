@@ -26,7 +26,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'simple_command'
 
-gem "google-cloud-storage", "~> 1.8", require: false
+gem "aws-sdk-s3", require: false
 
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
