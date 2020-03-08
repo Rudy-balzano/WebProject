@@ -40,7 +40,7 @@ class PaniersController < ApplicationController
 
     def index
 
-        @paniers = Panier.where(valide: true)
+        @paniers = Panier.all
 
     end
 
