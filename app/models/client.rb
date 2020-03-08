@@ -4,11 +4,11 @@ class Client < ApplicationRecord
 
     validates :mail, format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/, message: " : Invalid email"}, uniqueness: {case_sensitive: false, message: "Email has already been used"}
 
-    validates :prenom, format: {with: /\A[a-zA-Z]+$\z/, message: " : Invalid first name"}
+    validates :prenom, presence: true
 
-    validates :nom, format: {with: /\A[a-zA-Z]+$\z/, message: " : Invalid last name"}
+    validates :nom, presence: true
 
-    validates :rue, format: {with: /\A[a-zA-Z]+$\z/, message: " : Invalid street name"}
+    validates :rue, presence: true
 
     validates :ville, presence: true
 

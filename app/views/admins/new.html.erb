@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "forms.css" %>
-<% if !current_admin.nil? %>
+
 <% if @admin.errors.any?  %>
 <div class=" container alert alert-danger">
   <ul>
@@ -38,4 +38,3 @@
   <% end %>
   <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
 </div>
-<% end %>
